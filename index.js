@@ -3,7 +3,7 @@ var score = 0;
 var maxx, maxy;
 
 if (innerWidth <= 600) {
-    maxx = 50;
+    maxx = 40;
     maxy = 40;
 }
 else {
