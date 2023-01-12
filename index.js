@@ -1,42 +1,67 @@
-var score=0
+var score = 0;
+var maxx, maxy;
 
-document.onkeydown=function(e){
-    if(e.keyCode==38){
+if(innerWidth<=600){
+    maxx=50;
+    maxy=50;
+}
+else{
+    maxx=80;
+    maxy=80;
+}
+
+document.onkeydown = function (e) {
+    if (e.keyCode == 38) {
         countScore();
-        
-        var dino=document.querySelector(".dino");
+
+        var dino = document.querySelector(".dino");
         dino.classList.add('animateDino');
         setTimeout(() => {
             dino.classList.remove('animateDino');
         }, 700);
-        
-        
+
+
     }
 }
 
 
+document.onclick = function () {
+    var dino = document.querySelector(".dino");
+    dino.classList.add('animateDino');
+    setTimeout(() => {
+        dino.classList.remove('animateDino');
+    }, 700);
+    countScore();
+
+}
+
+
 setInterval(() => {
-    dino=document.querySelector(".dino");
-    gameOver=document.querySelector('.gameOver');
-    obstacles=document.querySelector('.obstacles');
-    dx=parseInt(window.getComputedStyle(dino,null).getPropertyValue('left'));
-    dy=parseInt(window.getComputedStyle(dino,null).getPropertyValue('top'));
-    ox=parseInt(window.getComputedStyle(obstacles,null).getPropertyValue('left'));
-    oy=parseInt(window.getComputedStyle(obstacles,null).getPropertyValue('top'));
-    ofsetx=Math.abs(dx-ox);
-    ofsety=Math.abs(dy-oy);
-    if(ofsetx<100 && ofsety<70){
-        
-        var dino=document.querySelector(".obstacles");
-        dino.classList.remove('obstaclesAni');
-        gameOver.style.visibility="visible";
+    dino = document.querySelector(".dino");
+    gameOver = document.querySelector('.gameOver');
+    obstacles = document.querySelector('.obstacles');
+    dx = parseInt(window.getComputedStyle(dino, null).getPropertyValue('left'));
+    dy = parseInt(window.getComputedStyle(dino, null).getPropertyValue('top'));
+    ox = parseInt(window.getComputedStyle(obstacles, null).getPropertyValue('left'));
+    oy = parseInt(window.getComputedStyle(obstacles, null).getPropertyValue('top'));
+    ofsetx = Math.abs(dx - ox);
+    ofsety = Math.abs(dy - oy);
+    if (ofsetx < maxx && ofsety < maxy) {
+
+        var dino = document.querySelector(".obstacles");
+            dino.classList.remove('obstaclesAni');
+            gameOver.style.visibility = "visible";
+
+        document.removeEventListener('keydown',()=>{
+            console.log("hello");
+        })
     }
 }, 100);
 
-function countScore(){
-    
-    score=score+10;
-    document.getElementsByClassName("score")[0].innerHTML=score;
+function countScore() {
+
+    score = score + 10;
+    document.getElementsByClassName("score")[0].innerHTML = score;
     return
 
 }

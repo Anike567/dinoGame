@@ -40,8 +40,8 @@ html body{
 .dino{
     background-image: url('res/dino.png');
     background-repeat: no-repeat;
-    height: 137px;
-    width: 271px;
+    height: 129px;
+    width: 270px;
     background-size: cover;
     background-repeat: no-repeat;
     position:absolute;
@@ -52,8 +52,8 @@ html body{
 .obstacles{
     background-image: url("res/dragon.png");
     background-repeat: no-repeat;
-    height: 167px;
-    width: 250px;
+    height: 129px;
+    width: 270px;
     background-size: cover;
     background-repeat: no-repeat;
     position:absolute;
@@ -98,4 +98,34 @@ html body{
     100%{
         left:-10vw;
     }
+}
+
+@media only screen and (max-width:600px) {
+
+    .dino{
+        left: 0;
+        background-size: 80px 80px;
+    }
+
+    .obstaclesAni{
+    
+        animation:obstacles 1.5s linear infinite;
+    }
+    .dino{
+        height: 80px;
+        width: 80px;
+    }
+    .obstacles{
+        height: 80px;
+        width: 80px;
+    }
+    .animateDino{
+        animation: dino 0.8s linear ;
+    }
+
+    .obstacles{
+        right: 0;
+        background-size: 80px 80px;
+    }
+    
 }
