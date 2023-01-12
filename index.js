@@ -68,10 +68,9 @@ function playgame() {
             var dino = document.querySelector(".obstacles");
             dino.classList.remove('obstaclesAni');
             gameOver.style.visibility = "visible";
+            isGameover=true;
 
-            document.removeEventListener('keydown', () => {
-                console.log("hello");
-            })
+            
         }
     }, 100);
 
