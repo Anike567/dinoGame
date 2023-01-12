@@ -1,9 +1,10 @@
 
 var score = 0;
 var maxx, maxy;
+var isGameover=false;
 
 if (innerWidth <= 600) {
-    maxx = 40;
+    maxx = 30;
     maxy = 40;
 }
 else {
@@ -25,7 +26,10 @@ setTimeout(() => {
 function playgame() {
     document.onkeydown = function (e) {
         if (e.keyCode == 38) {
-            countScore();
+            if(isGameover==false){
+                countScore();
+            }
+            
 
             var dino = document.querySelector(".dino");
             dino.classList.add('animateDino');
