@@ -30,6 +30,18 @@ html body{
     text-transform: capitalize;
 
 }
+.gameOver button{
+    color: white;
+    padding: 5px;
+    margin: 10px 0 0 50px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: rgb(18, 19, 18);
+}
+
+.gameOver button:hover{
+    background-color: rgb(87, 86, 86);
+}
 .scoreCount{
     
     width: fit-content;
@@ -109,7 +121,7 @@ html body{
 
     .obstaclesAni{
     
-        animation:obstacles 1.5s linear infinite;
+        animation:obstacles 1.1s linear infinite;
     }
     .dino{
         height: 80px;
@@ -126,6 +138,26 @@ html body{
     .obstacles{
         right: 0;
         background-size: 80px 80px;
+    }
+
+
+    @keyframes dino {
+        0%{
+            bottom: 0;
+    
+        } 
+    
+        50%{
+            
+            bottom: 200px;
+    
+        }
+    
+        100%{
+    
+            bottom: 0;
+    
+        }
     }
     
 }
