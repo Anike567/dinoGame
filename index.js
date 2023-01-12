@@ -1,7 +1,7 @@
 
 var score = 0;
 var maxx, maxy;
-var isGameover=false;
+var isGameover = false;
 
 if (innerWidth <= 600) {
     maxx = 30;
@@ -13,12 +13,13 @@ else {
 }
 
 
-
 setTimeout(() => {
+
     var dino = document.querySelector(".obstacles");
     dino.classList.add('obstaclesAni');
     document.getElementsByClassName("score")[0].innerHTML = score;
     playgame();
+    
 }, 3000);
 
 
@@ -26,16 +27,18 @@ setTimeout(() => {
 function playgame() {
     document.onkeydown = function (e) {
         if (e.keyCode == 38) {
-            if(isGameover==false){
+            if (!isGameover) {
                 countScore();
             }
-            
 
-            var dino = document.querySelector(".dino");
-            dino.classList.add('animateDino');
-            setTimeout(() => {
-                dino.classList.remove('animateDino');
-            }, 700);
+
+            if (!isGameover) {
+                var dino = document.querySelector(".dino");
+                dino.classList.add('animateDino');
+                setTimeout(() => {
+                    dino.classList.remove('animateDino');
+                }, 700);
+            }
 
 
         }
@@ -68,9 +71,9 @@ function playgame() {
             var dino = document.querySelector(".obstacles");
             dino.classList.remove('obstaclesAni');
             gameOver.style.visibility = "visible";
-            isGameover=true;
+            isGameover = true;
 
-            
+
         }
     }, 100);
 
@@ -85,6 +88,6 @@ function playgame() {
 }
 
 
-document.getElementsByClassName("reload")[0].addEventListener("click",function(){
+document.getElementsByClassName("reload")[0].addEventListener("click", function () {
     window.location.reload();
-})
+});
