@@ -19,7 +19,7 @@ setTimeout(() => {
     dino.classList.add('obstaclesAni');
     document.getElementsByClassName("score")[0].innerHTML = score;
     playgame();
-    
+
 }, 3000);
 
 
@@ -46,12 +46,13 @@ function playgame() {
 
 
     document.onclick = function () {
-        var dino = document.querySelector(".dino");
-        dino.classList.add('animateDino');
-        setTimeout(() => {
-            dino.classList.remove('animateDino');
-        }, 700);
-        countScore();
+        if (!isGameover) {
+            var dino = document.querySelector(".dino");
+            dino.classList.add('animateDino');
+            setTimeout(() => {
+                dino.classList.remove('animateDino');
+            }, 700);
+        }
 
     }
 
