@@ -29,10 +29,7 @@ function playgame() {
         if (e.keyCode == 38) {
             if (!isGameover) {
                 countScore();
-            }
-
-
-            if (!isGameover) {
+            
                 var dino = document.querySelector(".dino");
                 dino.classList.add('animateDino');
                 setTimeout(() => {
@@ -52,6 +49,7 @@ function playgame() {
             setTimeout(() => {
                 dino.classList.remove('animateDino');
             }, 700);
+            countScore();
         }
 
     }
